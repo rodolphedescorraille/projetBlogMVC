@@ -52,7 +52,8 @@
         <!-- Footer -->
         <footer class="py-5 bg-dark">
             <div class="container">
-                <p class="m-0 text-center text-white">C'est pas moi qui est fait le théme / 20</p>
+                <p class="m-0 text-center text-white">Cigarillos prod</p>
+                <a class="text-center text-white" href="https://www.youtube.com/channel/UCHXUPIo7745yKMssv_ytBIw">YOU TUBE</a>
             </div>
             <!-- /.container -->
         </footer>

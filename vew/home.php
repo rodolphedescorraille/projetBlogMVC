@@ -2,6 +2,7 @@
   <!-- Navigation -->
   <?php
     require_once('navbar.php');
+    $flag = 0;
   ?>
 
   <!-- Page Content -->
@@ -32,25 +33,39 @@
                     <p class="card-text"><?=$v['description']?></p>
                     <a href="index.php?path=article&action=show&id=<?= $v['id'] ?>" class="btn btn-primary">Read More &rarr;</a>
                 </div>
-                <div class="card-footer text-muted">
-                    Posted by <?=$v['user'][0]['username']?>
-                    <br>
-                    category : <?=$v['category'][0]['name']?>
-                </div>
             </div>
 
         <?php
+        $flag = $v['id'];
         }
         ?>
 
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
-          <li class="page-item">
-            <a class="page-link" href="#">&larr; Older</a>
-          </li>
-          <li class="page-item disabled">
-            <a class="page-link" href="#">Newer &rarr;</a>
-          </li>
+            <?php
+            if(($min[0]['MIN(id)'] + 10) < $flag){
+            ?>
+             <li class="page-item">
+                 <a class="page-link" href="index.php?path=home&action=liste&number=<?= ($flag - 10) ?>">&larr; Older</a>
+             </li>
+            <?php
+            }elseif ($flag > 10 ){
+            ?>
+            <li class="page-item">
+                 <a class="page-link" href="index.php?path=home&action=liste">&larr; Older</a>
+            </li>
+            <?php
+            }
+            ?>
+
+            <?php
+            if($max[0]['MAX(id)'] > $flag){
+            ?>
+              <a class="page-link" href="index.php?path=home&action=liste&number=<?= $flag ?>">Newer &rarr;</a>
+
+            <?php
+            }
+            ?>
         </ul>
 
       </div>

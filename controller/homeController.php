@@ -9,11 +9,16 @@ if( isset($_GET['action']) ){
             $info = getArticle($_GET['number']);
             $info[0]['category'] = getCategorie($info[0]['idCategory']);
             $info[0]['user']= getUser($info[0]['idUser']);
+
         }else{
             $info = getArticle(0);
-            $info[0]['category'] = getCategorie($info[0]['idCategory']);
-            $info[0]['user']= getUser($info[0]['idUser']);
+            foreach($info as $key => $i){
+                $info[$key]['category'] = getCategorie($i['idCategory']);
+                $info[$key]['user']= getUser($i['idUser']);
+            }
         }
+        $max = getMaxArticleId();
+        $min = getMinArticleId();
 
     }
 }

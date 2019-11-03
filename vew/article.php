@@ -29,7 +29,11 @@
 
           </div>
           <div class="card-footer text-muted">
-            Posted by <?= $info[0]['username'] ?>
+            Posted by <?= $info[0]['user'][0]['username'] ?>
+              <br>
+            category : <?= $info[0]['category'][0]['name'] ?>
+              <br>
+              <!-- <button type="submit" class="btn btn-primary ">delet</button> -->
           </div>
         </div>
         <div class="card mb-4">

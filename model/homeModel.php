@@ -15,6 +15,24 @@ function connect ()
     }
 }
 
+function getMaxArticleId ()
+{
+    $db = connect();
+    $query = $db->prepare("SELECT MAX(id) FROM `posts`");
+    $query->execute();
+
+    return  $query->fetchAll();
+}
+
+function getMinArticleId ()
+{
+    $db = connect();
+    $query = $db->prepare("SELECT MIN(id) FROM `posts`");
+    $query->execute();
+
+    return  $query->fetchAll();
+}
+
 function getArticle ($flag)
 {
     $db = connect();

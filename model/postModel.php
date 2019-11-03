@@ -31,7 +31,7 @@ function newPost ($titre,$description,$contenu,$category,$idUser)
 
     $query = $db->prepare("INSERT INTO 
                                     `posts`( `imagePath`, `title`, `description`, `content`, `idCategory`, `idUser`) 
-                                    VALUES ('','".$titre."',',$description','".$contenu."','".$category."','$idUser')");
+                                    VALUES ('','".$titre."','$description','".$contenu."','".$category."','$idUser')");
     $query->execute();
 
     return $query->fetchAll();
